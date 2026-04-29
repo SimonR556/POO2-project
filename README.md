@@ -45,3 +45,12 @@ RNF11|O sistema deve realizar backup automático dos dados diariamente.|Confiabi
 RNF12|O sistema deve ser escalável para suportar aumento no número de usuários e dados.|Escalabilidade
 RNF13|"O sistema deve seguir padrões de desenvolvimento (ex: MVC, boas práticas de código)."|Padrão do projeto
 RNF14|O sistema deve possuir tempo de aprendizado inferior a 2 horas para novos usuários.|Usabilidade
+
+## 4
+DIAGRAMA DE CASO DE USO
+<img width="2830" height="1944" alt="UseCase POO 2 (1)" src="https://github.com/user-attachments/assets/e4de839c-57dd-47e5-b4dc-ef9ab56bbe77" />
+
+## 5
+DIAGRAMA DE CLASSES
+
+<img width="2496" height="1336" alt="Class Diagram0 (1)" src="https://github.com/user-attachments/assets/d01ee1d7-dd12-40a7-a966-00deec10f594" />
