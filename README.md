@@ -48,6 +48,7 @@ RNF14|O sistema deve possuir tempo de aprendizado inferior a 2 horas para novos 
 
 ## 4
 DIAGRAMA DE CASO DE USO
+
 <img width="2830" height="1944" alt="UseCase POO 2 (1)" src="https://github.com/user-attachments/assets/e4de839c-57dd-47e5-b4dc-ef9ab56bbe77" />
 
 ## 5
