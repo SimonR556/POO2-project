@@ -36,9 +36,9 @@ RNF02|O sistema deve suportar no mínimo 2000 usuários simultâneos sem perda d
 RNF03|O sistema deve garantir a autenticação de usuários por meio de login e senha.|Segurança
 RNF04|O sistema deve criptografar as senhas dos usuários armazenadas no banco de dados.|Segurança
 RNF05|O sistema deve possuir controle de acesso baseado em níveis (gerente e funcionário).|Segurança
-RNF06|O sistema deve estar disponível 99% do tempo durante o horário comercial.,Disponibilidade
-RNF07|O sistema deve possuir interface intuitiva e de fácil uso para usuários não técnicos.,Usabilidade
-RNF08|O sistema deve permitir fácil manutenção e atualização de código.,Manutenibilidade
+RNF06|O sistema deve estar disponível 99% do tempo durante o horário comercial.|Disponibilidade
+RNF07|O sistema deve possuir interface intuitiva e de fácil uso para usuários não técnicos.|Usabilidade
+RNF08|O sistema deve permitir fácil manutenção e atualização de código.|Manutenibilidade
 RNF09|O sistema deve registrar logs das operações realizadas (cadastros, vendas, alterações).|Auditoria
 RNF10|O sistema deve garantir a integridade dos dados armazenados no banco.|Confiabilidade
 RNF11|O sistema deve realizar backup automático dos dados diariamente.|Confiabilidade
