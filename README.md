@@ -60,7 +60,7 @@ DIAGRAMA DE CLASSES
 DIAGRAMA DE ATIVIDADES
 
 <img width="766" height="898" alt="fluxodevendaeatendimento" src="https://github.com/user-attachments/assets/0ef4a60c-bded-468a-9294-fe2a0b133160" />
-  
+<br>
 <img width="999" height="595" alt="gestapdevendaestoque" src="https://github.com/user-attachments/assets/891d6977-a679-4d5b-8a29-89cec3a8e4a7" />
-  
+<br>
 <img width="1533" height="595" alt="fluxoadmerel" src="https://github.com/user-attachments/assets/0d5f472f-361c-4431-9ed4-b8bcec791177" />
