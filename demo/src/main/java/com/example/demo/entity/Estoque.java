@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Estoque extends Produto{
-    private ingrediente <List> Ingrediente;
-    private Pruduto <List> Produto;
+    private List <Ingrediente> ingredienteList;
+    private List <Produto> produtoList;
 
     public void adicionarQuantidade(){
 

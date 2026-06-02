@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Venda {
     private boolean entregaDelivery;
     private double valorTotal;
-    private List<Cardapio> Cardapio;
+    private List<Cardapio> cardapioList;
     private String dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 
     public void dataHoraTest(){

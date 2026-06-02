@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Produto {
     private int estoqueAtual;
-    privvate precoUnico;
+    private double precoUnico;
 
 }
