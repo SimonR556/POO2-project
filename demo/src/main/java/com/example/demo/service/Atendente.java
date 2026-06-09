@@ -1,4 +1,5 @@
-package com.example.demo.entity;
+package com.example.demo.service;
+import com.example.demo.entity.Funcionario;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
@@ -6,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @Setter
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
-public class Atendente extends Funcionario{
+public class Atendente extends Funcionario {
     public void iniciarVenda(){
 
     }
