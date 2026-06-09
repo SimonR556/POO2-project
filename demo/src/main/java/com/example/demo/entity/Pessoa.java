@@ -1,4 +1,6 @@
 package com.example.demo.entity;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
@@ -8,9 +10,11 @@ import lombok.NoArgsConstructor;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@MappedSuperclass
 public class Pessoa {
     private String CPF;
     private String telefone;
     private String nome;
-    private Endereco endereco = new Endereco();
+    @Embedded
+    private Endereco Endereco;
 }

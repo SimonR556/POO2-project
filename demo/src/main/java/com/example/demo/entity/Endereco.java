@@ -1,4 +1,6 @@
 package com.example.demo.entity;
+
+import jakarta.persistence.Embeddable;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
@@ -8,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Embeddable
 public class Endereco {
     private String rua;
     private int numero;
