@@ -1,0 +1,41 @@
+package com.example.demo.service;
+
+import com.example.demo.entity.Venda;
+import com.example.demo.repository.VendaRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class VendaService {
+
+    private final VendaRepository vendaRepository;
+
+    public VendaService(VendaRepository vendaRepository) {
+        this.vendaRepository = vendaRepository;
+    }
+
+    public Venda registrarVenda(Venda venda) {
+        validarVenda(venda);
+        return vendaRepository.save(venda);
+    }
+
+    public List<Venda> listarVendas() {
+        return vendaRepository.findAll();
+    }
+
+    private void validarVenda(Venda venda) {
+        if (venda == null) {
+            throw new IllegalArgumentException("Os dados da venda são obrigatórios");
+        }
+        if (venda.getValorTotal() <= 0) {
+            throw new IllegalArgumentException("O valor total da venda deve ser maior que zero");
+        }
+        if (venda.getCardapioList() == null || venda.getCardapioList().isEmpty()) {
+            throw new IllegalArgumentException("A venda deve conter ao menos um item do cardápio");
+        }
+        if (venda.getDataHora() == null || venda.getDataHora().trim().isEmpty()) {
+            throw new IllegalArgumentException("A data e hora da venda são obrigatórias");
+        }
+    }
+}
