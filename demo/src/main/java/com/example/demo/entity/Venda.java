@@ -26,7 +26,4 @@ public class Venda {
     private List<Cardapio> cardapioList;
     private String dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 
-    public void dataHoraTest(){
-        System.out.println(dataHora);
-    }
 }
