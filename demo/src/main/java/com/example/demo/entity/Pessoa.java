@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @MappedSuperclass
 public class Pessoa {
-    private String CPF;
+    private String cpf;
     private String telefone;
     private String nome;
     @Embedded
