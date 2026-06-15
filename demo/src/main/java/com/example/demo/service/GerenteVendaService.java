@@ -47,4 +47,21 @@ public class GerenteVendaService {
             throw new IllegalArgumentException("O preço de venda deve ser maior que zero");
         }
     }
+
+    public Cardapio atualizarPrato(Long id, Cardapio dadosAtualizados) {
+        Cardapio existente = cardapioRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Prato não encontrado"));
+
+        if (dadosAtualizados.getNome() != null && !dadosAtualizados.getNome().trim().isEmpty()) {
+            existente.setNome(dadosAtualizados.getNome());
+        }
+        if (dadosAtualizados.getPrecoVenda() > 0) {
+            existente.setPrecoVenda(dadosAtualizados.getPrecoVenda());
+        }
+        if (dadosAtualizados.getDescricao() != null) {
+            existente.setDescricao(dadosAtualizados.getDescricao());
+        }
+
+        return cardapioRepository.save(existente);
+    }
 }

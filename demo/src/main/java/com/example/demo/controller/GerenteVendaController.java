@@ -33,5 +33,10 @@ public class GerenteVendaController {
         gerenteVendaService.excluirPrato(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/pratos/{id}")
+    public ResponseEntity<Cardapio> atualizarPrato(@PathVariable Long id, @RequestBody Cardapio prato) {
+        return ResponseEntity.ok(gerenteVendaService.atualizarPrato(id, prato));
+    }
 }
 

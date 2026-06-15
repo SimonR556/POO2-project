@@ -58,4 +58,18 @@ public class GerenteGeralService {
             throw new IllegalArgumentException("O CPF deve conter 11 dígitos numéricos");
         }
     }
+
+    public Funcionario atualizarFuncionario(Long id, Funcionario dadosAtualizados) {
+        Funcionario existente = funcionarioRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Funcionário não encontrado"));
+
+        if (dadosAtualizados.getNome() != null && !dadosAtualizados.getNome().trim().isEmpty()) {
+            existente.setNome(dadosAtualizados.getNome());
+        }
+        if (dadosAtualizados.getSenha() != null && dadosAtualizados.getSenha().length() >= 6) {
+            existente.setSenha(dadosAtualizados.getSenha());
+        }
+
+        return funcionarioRepository.save(existente);
+    }
 }

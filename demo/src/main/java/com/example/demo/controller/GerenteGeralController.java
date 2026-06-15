@@ -33,4 +33,9 @@ public class GerenteGeralController {
         gerenteGeralService.demitirFuncionario(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/funcionarios/{id}")
+    public ResponseEntity<Funcionario> atualizarFuncionario(@PathVariable Long id, @RequestBody Funcionario funcionario) {
+        return ResponseEntity.ok(gerenteGeralService.atualizarFuncionario(id, funcionario));
+    }
 }
