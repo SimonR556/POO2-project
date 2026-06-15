@@ -2,8 +2,12 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Estoque;
 import com.example.demo.entity.Produto;
+import com.example.demo.entity.Ingrediente;
+import com.example.demo.entity.RegistroCompra;
 import com.example.demo.repository.EstoqueRepository;
 import com.example.demo.repository.ProdutoRepository;
+import com.example.demo.repository.IngredienteRepository;
+import com.example.demo.repository.RegistroCompraRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -14,11 +18,31 @@ public class GerenteEstoqueService {
 
     private final ProdutoRepository produtoRepository;
     private final EstoqueRepository estoqueRepository;
+    private final IngredienteRepository ingredienteRepository;
+    private final RegistroCompraRepository registroCompraRepository;
 
-    // Injetando dois repositórios no construtor
-    public GerenteEstoqueService(ProdutoRepository produtoRepository, EstoqueRepository estoqueRepository) {
+    public GerenteEstoqueService(
+            ProdutoRepository produtoRepository,
+            EstoqueRepository estoqueRepository,
+            IngredienteRepository ingredienteRepository,
+            RegistroCompraRepository registroCompraRepository) {
         this.produtoRepository = produtoRepository;
         this.estoqueRepository = estoqueRepository;
+        this.ingredienteRepository = ingredienteRepository;
+        this.registroCompraRepository = registroCompraRepository;
+    }
+
+    public Produto cadastrarProduto(Produto produto) {
+        return produtoRepository.save(produto);
+    }
+
+    public Ingrediente cadastrarIngrediente(Ingrediente ingrediente) {
+        return ingredienteRepository.save(ingrediente);
+    }
+
+    public RegistroCompra registrarCompra(RegistroCompra compra) {
+        compra.setDataCompra(LocalDateTime.now()); // Garante que a data seja exata
+        return registroCompraRepository.save(compra);
     }
 
     public Produto reporEstoque(Long produtoId, int quantidadeComprada) {
