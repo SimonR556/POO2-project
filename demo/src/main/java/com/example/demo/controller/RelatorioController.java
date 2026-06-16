@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.RelatorioFinanceiroDTO;
+import com.example.demo.dto.RelatorioGeralDTO;
 import com.example.demo.service.RelatorioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,12 @@ public class RelatorioController {
     }
 
     @GetMapping("/financeiro")
-    public ResponseEntity<RelatorioFinanceiroDTO> obterRelatorio() {
+    public ResponseEntity<RelatorioFinanceiroDTO> obterRelatorioFinanceiro() {
         return ResponseEntity.ok(relatorioService.gerarRelatorioFinanceiro());
+    }
+
+    @GetMapping("/geral")
+    public ResponseEntity<RelatorioGeralDTO> obterRelatorioGeral() {
+        return ResponseEntity.ok(relatorioService.gerarRelatorioGeral());
     }
 }

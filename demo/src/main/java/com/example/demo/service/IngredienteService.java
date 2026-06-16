@@ -37,8 +37,8 @@ public class IngredienteService {
         if (ingrediente.getPrecoUnico() <= 0) {
             throw new IllegalArgumentException("O preço do ingrediente deve ser maior que zero");
         }
-        if (ingrediente.getUnidadeMedida() <= 0) {
-            throw new IllegalArgumentException("A unidade de medida deve ser maior que zero");
+        if (ingrediente.getUnidadeMedida() == null || ingrediente.getUnidadeMedida().trim().isEmpty()) {
+            throw new IllegalArgumentException("A unidade de medida é obrigatória (ex: kg, L, un)");
         }
     }
 }

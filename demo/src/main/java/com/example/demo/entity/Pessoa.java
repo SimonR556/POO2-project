@@ -16,5 +16,5 @@ public class Pessoa {
     private String telefone;
     private String nome;
     @Embedded
-    private Endereco Endereco;
+    private Endereco endereco;
 }

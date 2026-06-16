@@ -20,6 +20,6 @@ public class Ingrediente {
     @Column(unique = true, nullable = false)
     private String nome;
     private int quantidadeEstoque;
-    private float UnidadeMedida;
+    private String unidadeMedida;
     private float precoUnico;
 }

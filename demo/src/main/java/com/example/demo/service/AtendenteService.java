@@ -31,6 +31,9 @@ public class AtendenteService {
         if (venda.getValorTotal() <= 0) {
             throw new IllegalArgumentException("O valor total da venda deve ser maior que zero");
         }
+        if (venda.getCardapioList() == null || venda.getCardapioList().isEmpty()) {
+            throw new IllegalArgumentException("A venda deve conter ao menos um item do cardápio");
+        }
         if (venda.getDataHora() == null) {
             throw new IllegalArgumentException("A data e hora da venda são obrigatórias");
         }

@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Estoque;
 import com.example.demo.entity.Produto;
-import com.example.demo.entity.Ingrediente;
 import com.example.demo.entity.RegistroCompra;
 import com.example.demo.repository.EstoqueRepository;
 import com.example.demo.repository.ProdutoRepository;
@@ -18,7 +17,6 @@ public class GerenteEstoqueService {
 
     private final ProdutoRepository produtoRepository;
     private final EstoqueRepository estoqueRepository;
-    private final IngredienteRepository ingredienteRepository;
     private final RegistroCompraRepository registroCompraRepository;
 
     public GerenteEstoqueService(
@@ -28,16 +26,11 @@ public class GerenteEstoqueService {
             RegistroCompraRepository registroCompraRepository) {
         this.produtoRepository = produtoRepository;
         this.estoqueRepository = estoqueRepository;
-        this.ingredienteRepository = ingredienteRepository;
         this.registroCompraRepository = registroCompraRepository;
     }
 
     public Produto cadastrarProduto(Produto produto) {
         return produtoRepository.save(produto);
-    }
-
-    public Ingrediente cadastrarIngrediente(Ingrediente ingrediente) {
-        return ingredienteRepository.save(ingrediente);
     }
 
     public RegistroCompra registrarCompra(RegistroCompra compra) {
