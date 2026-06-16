@@ -31,7 +31,7 @@ public class AtendenteService {
         if (venda.getValorTotal() <= 0) {
             throw new IllegalArgumentException("O valor total da venda deve ser maior que zero");
         }
-        if (venda.getDataHora() == null || venda.getDataHora().trim().isEmpty()) {
+        if (venda.getDataHora() == null) {
             throw new IllegalArgumentException("A data e hora da venda são obrigatórias");
         }
     }

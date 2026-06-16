@@ -1,4 +1,6 @@
 package com.example.demo.entity;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +22,8 @@ public class Funcionario extends Pessoa{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String senha;
     private String cargo;
 }

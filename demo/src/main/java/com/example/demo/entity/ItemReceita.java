@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-@Table(name = "item_receita")
 public class ItemReceita {
 
     private double quantidade;
