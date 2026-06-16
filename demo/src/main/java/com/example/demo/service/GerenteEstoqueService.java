@@ -33,8 +33,12 @@ public class GerenteEstoqueService {
         return produtoRepository.save(produto);
     }
 
+    public List<Produto> listarProdutos() {
+        return produtoRepository.findAll();
+    }
+
     public RegistroCompra registrarCompra(RegistroCompra compra) {
-        compra.setDataCompra(LocalDateTime.now()); // Garante que a data seja exata
+        compra.setDataCompra(LocalDateTime.now());
         return registroCompraRepository.save(compra);
     }
 

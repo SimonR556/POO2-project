@@ -24,6 +24,18 @@ public class IngredienteService {
         return ingredienteRepository.findAll();
     }
 
+    public Ingrediente reporEstoque(Long ingredienteId, int quantidadeComprada) {
+        if (ingredienteId == null || quantidadeComprada <= 0) {
+            throw new IllegalArgumentException("Identificador inválido ou quantidade menor/igual a zero.");
+        }
+
+        Ingrediente ingrediente = ingredienteRepository.findById(ingredienteId)
+                .orElseThrow(() -> new IllegalArgumentException("Ingrediente não encontrado"));
+
+        ingrediente.setQuantidadeEstoque(ingrediente.getQuantidadeEstoque() + quantidadeComprada);
+        return ingredienteRepository.save(ingrediente);
+    }
+
     private void validarIngrediente(Ingrediente ingrediente) {
         if (ingrediente == null) {
             throw new IllegalArgumentException("Os dados do ingrediente são obrigatórios");
