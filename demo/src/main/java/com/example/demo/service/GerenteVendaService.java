@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Cardapio;
+import com.example.demo.entity.Prato;
 import com.example.demo.repository.CardapioRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ public class GerenteVendaService {
         this.cardapioRepository = cardapioRepository;
     }
 
-    public Cardapio cadastrarPrato(Cardapio prato) {
+    public Cardapio cadastrarPrato(Prato prato) {
         validarCardapio(prato);
 
         cardapioRepository.findByNome(prato.getNome().trim()).ifPresent(c -> {

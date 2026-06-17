@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Cardapio;
+import com.example.demo.entity.Prato;
 import com.example.demo.service.GerenteVendaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class GerenteVendaController {
     }
 
     @PostMapping("/pratos")
-    public ResponseEntity<Cardapio> cadastrarPrato(@RequestBody Cardapio prato){
+    public ResponseEntity<Cardapio> cadastrarPrato(@RequestBody Prato prato){
         return ResponseEntity.status(HttpStatus.CREATED).body(gerenteVendaService.cadastrarPrato(prato));
     }
 

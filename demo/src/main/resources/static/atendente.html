@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frente de Caixa | Restaurante</title>
+    <link rel="stylesheet" href="css/atendente.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo-area">
+            <h2>🍽️ PDV</h2>
+            <span id="nomeAtendenteLogado">Operação de Caixa</span>
+        </div>
+        <nav class="menu-nav">
+            <button class="menu-item ativo">🛒 Nova Venda</button>
+            <button class="menu-item" onclick="abrirModalListaClientes()">👥 Consultar Clientes</button>
+            <button class="menu-item" onclick="abrirModalCliente()">➕ Novo Cliente</button>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="btn-sair" onclick="sairDoSistema()">Sair do Sistema</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-titles">
+                <h1>Lançamento Rápido</h1>
+                <p>Selecione os itens para adicionar à comanda</p>
+            </div>
+            <div class="busca-cliente-rapida">
+                <input type="text" id="buscaCpf" placeholder="CPF do Cliente..." autocomplete="off">
+                <button class="btn-buscar" onclick="vincularCliente()">Vincular</button>
+            </div>
+        </header>
+
+        <div class="grid-produtos" id="gridProdutosPDV">
+        </div>
+    </main>
+
+    <aside class="comanda-panel">
+        <div class="comanda-header">
+            <h3>Comanda Atual</h3>
+            <span id="clienteAtivo" class="badge-cliente">Cliente Não Identificado</span>
+        </div>
+
+        <div class="comanda-lista" id="listaComanda">
+            <div class="mensagem-vazia">Nenhum item na comanda.</div>
+        </div>
+
+        <div class="comanda-footer">
+            <div class="delivery-area">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="checkDelivery">
+                    <span class="checkmark"></span>
+                    Pedido para Delivery
+                </label>
+            </div>
+
+            <div class="total-area">
+                <span>Total</span>
+                <span id="valorTotal">R$ 0,00</span>
+            </div>
+            <button class="btn-finalizar" onclick="finalizarVenda()">Finalizar Venda</button>
+        </div>
+    </aside>
+
+    <div class="modal-overlay" id="modalCliente">
+        <div class="modal-content">
+            <h2>Cadastrar Novo Cliente</h2>
+            <form id="formNovoCliente">
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="novoNome" required>
+                </div>
+                <div class="input-group">
+                    <label>CPF</label>
+                    <input type="text" id="novoCpf" required>
+                </div>
+                <div class="input-group">
+                    <label>Telefone</label>
+                    <input type="text" id="novoTelefone" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancelar" onclick="fecharModais()">Cancelar</button>
+                    <button type="submit" class="btn-salvar">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalListaClientes">
+        <div class="modal-content modal-largo">
+            <div class="modal-header">
+                <h2>Clientes Cadastrados</h2>
+                <button class="btn-fechar" onclick="fecharModais()">×</button>
+            </div>
+            <div class="table-container">
+                <table class="tabela-clean">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaClientesCorpo">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/atendente.js"></script>
+</body>
+
+</html>

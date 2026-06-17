@@ -53,4 +53,15 @@ public class IngredienteService {
             throw new IllegalArgumentException("A unidade de medida é obrigatória (ex: kg, L, un)");
         }
     }
+
+    public Ingrediente darBaixaIngrediente(Long ingredienteId, int quantidade) {
+        if (ingredienteId == null || quantidade <= 0) throw new IllegalArgumentException("Quantidade inválida.");
+        Ingrediente ingrediente = ingredienteRepository.findById(ingredienteId).orElseThrow(() -> new IllegalArgumentException("Ingrediente não encontrado"));
+
+        if (ingrediente.getQuantidadeEstoque() < quantidade) throw new IllegalArgumentException("Estoque insuficiente para a baixa.");
+
+        ingrediente.setQuantidadeEstoque(ingrediente.getQuantidadeEstoque() - quantidade);
+        return ingredienteRepository.save(ingrediente);
+    }
+
 }

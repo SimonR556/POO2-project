@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.VendaDTO;
 import com.example.demo.entity.Venda;
 import com.example.demo.service.AtendenteService;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,8 @@ public class AtendenteController {
     }
 
     @PostMapping("/vendas")
-    public ResponseEntity<Venda> registrarVenda(@RequestBody Venda venda) {
-        Venda vendaSalva = atendenteService.realizarVenda(venda);
+    public ResponseEntity<Venda> registrarVenda(@RequestBody VendaDTO dto) {
+        Venda vendaSalva = atendenteService.realizarVenda(dto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(vendaSalva);
     }
@@ -31,4 +32,3 @@ public class AtendenteController {
         return ResponseEntity.ok(vendas);
     }
 }
-
