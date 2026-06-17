@@ -59,6 +59,16 @@ public class GerenteEstoqueController {
         return ResponseEntity.ok(ingredienteService.reporEstoque(id, quantidade));
     }
 
+    @PutMapping("/produtos/{id}/baixa")
+    public ResponseEntity<Produto> darBaixaProduto(@PathVariable Long id, @RequestParam int quantidade){
+        return ResponseEntity.ok(gerenteEstoqueService.darBaixaProduto(id, quantidade));
+    }
+
+    @PutMapping("/ingredientes/{id}/baixa")
+    public ResponseEntity<Ingrediente> darBaixaIngrediente(@PathVariable Long id, @RequestParam int quantidade) {
+        return ResponseEntity.ok(ingredienteService.darBaixaIngrediente(id, quantidade));
+    }
+
     @PostMapping("/atualizacoes")
     public ResponseEntity<Estoque> registrarAtualizacao(@RequestBody Estoque estoque){
         return ResponseEntity.status(HttpStatus.CREATED).body(gerenteEstoqueService.registrarAtualizacao(estoque));
