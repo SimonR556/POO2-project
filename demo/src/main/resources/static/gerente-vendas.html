@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerente de Vendas | Cardápio</title>
+    
+    <link rel="stylesheet" href="css/gerente.css">
+</head>
+<body>
+
+    <!-- Menu Lateral Adaptado -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <h2>🍽️ Gestão</h2>
+            <span id="nomeGerenteLogado">Gerente de Vendas</span>
+        </div>
+        <nav class="menu-nav">
+            <button class="menu-item ativo">📋 Menu & Cardápio</button>
+            <button class="menu-item" disabled>📊 Dashboard (Bloqueado)</button>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="btn-sair" onclick="sairDoSistema()">Sair do Sistema</a>
+        </div>
+    </aside>
+
+    <!-- Área Central: Tabela do Cardápio -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-titles">
+                <h1>Gestão de Cardápio</h1>
+                <p>Adicione, edite ou remova pratos e produtos do restaurante</p>
+            </div>
+        </header>
+
+        <section class="modulo-rh">
+            <div class="rh-header">
+                <h2>Itens do Cardápio</h2>
+                <button class="btn-contratar" onclick="abrirModalNovoPrato()">➕ Novo Item</button>
+            </div>
+            
+            <div class="table-container">
+                <table class="tabela-clean">
+                    <thead>
+                        <tr>
+                            <th>Nome do Item</th>
+                            <th>Descrição</th>
+                            <th>Preço (R$)</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaCardapio">
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL: Cadastrar / Editar Prato -->
+    <div class="modal-overlay" id="modalPrato">
+        <div class="modal-content">
+            <h2 id="tituloModalPrato">Cadastrar Novo Item</h2>
+            <form id="formPrato">
+                <input type="hidden" id="editIndex"> 
+                
+                <div class="input-group">
+                    <label>Nome do Item</label>
+                    <input type="text" id="pratoNome" placeholder="Ex: Risoto de Cogumelos" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Descrição (Ingredientes)</label>
+                    <input type="text" id="pratoDescricao" placeholder="Breve descrição para o cliente" required>
+                </div>
+
+                <div class="input-group" style="width: 50%;">
+                    <label>Preço de Venda</label>
+                    <input type="text" id="pratoPreco" placeholder="R$ 0,00" required>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancelar" onclick="fecharModalPrato()">Cancelar</button>
+                    <button type="submit" class="btn-salvar">Salvar Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/gerente-vendas.js"></script>
+</body>
+</html>

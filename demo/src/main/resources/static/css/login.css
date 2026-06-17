@@ -1,0 +1,128 @@
+/* Importando uma fonte clean e moderna (Inter) do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    /* Sua Paleta de Cores Oficial */
+    --cor-fundo: #F5F5DC;
+    /* Bege Claro */
+    --cor-texto: #6D3B07;
+    /* Marrom Escuro */
+    --cor-destaque: #D47E30;
+    /* Laranja Ocre */
+    --cor-destaque-hover: #b86b27;
+    --cor-secundaria: #6F4E37;
+    /* Marrom Médio */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Design Clean do Card */
+.login-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 8px 24px rgba(109, 59, 7, 0.08);
+    /* Sombra suave com tom de marrom */
+    text-align: center;
+}
+
+.logo-restaurante {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+p {
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--cor-secundaria);
+    margin-bottom: 30px;
+}
+
+/* Inputs minimalistas */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    padding: 12px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--cor-texto);
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+.input-group input:focus {
+    border-color: var(--cor-destaque);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(212, 126, 48, 0.15);
+}
+
+/* Botão principal */
+.btn-entrar {
+    width: 100%;
+    background-color: var(--cor-destaque);
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-entrar:hover {
+    background-color: var(--cor-destaque-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secreto {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+}
+
+.btn-secreto:hover {
+    opacity: 0.8;
+    /* Aparece ao passar o mouse */
+}

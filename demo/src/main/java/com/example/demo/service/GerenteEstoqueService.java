@@ -33,8 +33,12 @@ public class GerenteEstoqueService {
         return produtoRepository.save(produto);
     }
 
+    public List<Produto> listarProdutos() {
+        return produtoRepository.findAll();
+    }
+
     public RegistroCompra registrarCompra(RegistroCompra compra) {
-        compra.setDataCompra(LocalDateTime.now()); // Garante que a data seja exata
+        compra.setDataCompra(LocalDateTime.now());
         return registroCompraRepository.save(compra);
     }
 
@@ -67,4 +71,15 @@ public class GerenteEstoqueService {
     public List<Estoque> listarHistorico() {
         return estoqueRepository.findAll();
     }
+
+    public Produto darBaixaProduto(Long produtoId, int quantidade) {
+        if (produtoId == null || quantidade <= 0) throw new IllegalArgumentException("Quantidade inválida.");
+        Produto produto = produtoRepository.findById(produtoId).orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
+
+        if (produto.getEstoqueAtual() < quantidade) throw new IllegalArgumentException("Estoque insuficiente para a baixa.");
+
+        produto.setEstoqueAtual(produto.getEstoqueAtual() - quantidade);
+        return produtoRepository.save(produto);
+    }
+
 }

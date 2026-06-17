@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Restaurante | Cadastro de Gerente</title>
+    <link rel="stylesheet" href="css/login.css">
+    <style>
+        .btn-voltar {
+            display: block;
+            margin-top: 15px;
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .btn-voltar:hover {
+            color: var(--cor-destaque);
+        }
+
+        .input-group input:disabled {
+            background-color: #ebebeb;
+            color: #888;
+            cursor: not-allowed;
+            border-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-card">
+        <div class="logo-restaurante">⚙️</div>
+
+        <h1>Configuração Inicial</h1>
+        <p>Cadastre o Gerente Geral do restaurante</p>
+
+        <form id="formCadastroGerente">
+
+            <div class="input-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" placeholder="Digite o nome" required>
+            </div>
+
+            <div class="input-group">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" placeholder="Apenas números" autocomplete="off" required>
+            </div>
+
+            <div class="input-group">
+                <label for="telefone">Telefone</label>
+                <input type="text" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+            </div>
+
+            <div class="input-group">
+                <label for="senha">Senha de Acesso</label>
+                <input type="password" id="senha" placeholder="Mínimo 6 caracteres" minlength="6" required>
+            </div>
+
+            <div class="input-group">
+                <label>Cargo</label>
+                <input type="text" value="Gerente Geral" disabled>
+            </div>
+
+            <button type="submit" class="btn-entrar">Finalizar Cadastro</button>
+            <a href="index.html" class="btn-voltar">← Voltar para o Login</a>
+        </form>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/cadastro-gerente.js"></script>
+</body>
+
+</html>

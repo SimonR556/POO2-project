@@ -50,7 +50,6 @@ public class RelatorioService {
         long totalFuncionarios = funcionarioRepository.count();
         long totalClientes = clienteRepository.count();
 
-        // Pega todos os produtos e filtra os que têm estoque menor que 10
         List<Produto> estoqueBaixo = produtoRepository.findAll().stream()
                 .filter(produto -> produto.getEstoqueAtual() < 10)
                 .collect(Collectors.toList());

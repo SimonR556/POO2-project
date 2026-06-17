@@ -24,9 +24,19 @@ public class GerenteEstoqueController {
         this.ingredienteService = ingredienteService;
     }
 
+    @GetMapping("/produtos")
+    public ResponseEntity<List<Produto>> listarProdutos() {
+        return ResponseEntity.ok(gerenteEstoqueService.listarProdutos());
+    }
+
     @PostMapping("/produtos")
     public ResponseEntity<Produto> cadastrarProduto(@RequestBody Produto produto){
         return ResponseEntity.status(HttpStatus.CREATED).body(gerenteEstoqueService.cadastrarProduto(produto));
+    }
+
+    @GetMapping("/ingredientes")
+    public ResponseEntity<List<Ingrediente>> listarIngredientes() {
+        return ResponseEntity.ok(ingredienteService.listarIngredientes());
     }
 
     @PostMapping("/ingredientes")
@@ -42,6 +52,21 @@ public class GerenteEstoqueController {
     @PutMapping("/produtos/{id}/repor")
     public ResponseEntity<Produto> reporEstoque(@PathVariable Long id, @RequestParam int quantidade){
         return ResponseEntity.ok(gerenteEstoqueService.reporEstoque(id, quantidade));
+    }
+
+    @PutMapping("/ingredientes/{id}/repor")
+    public ResponseEntity<Ingrediente> reporEstoqueIngrediente(@PathVariable Long id, @RequestParam int quantidade) {
+        return ResponseEntity.ok(ingredienteService.reporEstoque(id, quantidade));
+    }
+
+    @PutMapping("/produtos/{id}/baixa")
+    public ResponseEntity<Produto> darBaixaProduto(@PathVariable Long id, @RequestParam int quantidade){
+        return ResponseEntity.ok(gerenteEstoqueService.darBaixaProduto(id, quantidade));
+    }
+
+    @PutMapping("/ingredientes/{id}/baixa")
+    public ResponseEntity<Ingrediente> darBaixaIngrediente(@PathVariable Long id, @RequestParam int quantidade) {
+        return ResponseEntity.ok(ingredienteService.darBaixaIngrediente(id, quantidade));
     }
 
     @PostMapping("/atualizacoes")

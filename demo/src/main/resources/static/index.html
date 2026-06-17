@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Restaurante | Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <div class="login-card">
+        <div class="logo-restaurante">🍽️</div>
+
+        <h1>Acesso ao Sistema</h1>
+        <p>Insira suas credenciais para continuar</p>
+
+        <form id="formLogin">
+            <div class="input-group">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" placeholder="Apenas números" autocomplete="off" required>
+            </div>
+
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-entrar">Entrar</button>
+        </form>
+    </div>
+
+    <a href="cadastro-gerente.html" class="btn-secreto" title="Configuração de Gerente Geral">⚙️</a>
+
+    <script src="js/config.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

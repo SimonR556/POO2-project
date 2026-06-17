@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerente de Estoque | Restaurante</title>
+    <link rel="stylesheet" href="css/gerente.css">
+    <style>
+
+        .tag-tipo {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-ingrediente {
+            background-color: #e8f4f8;
+            color: #2980b9;
+        }
+
+        .tag-produto {
+            background-color: #fcf3cf;
+            color: #d35400;
+        }
+
+        .qtd-baixa {
+            color: var(--cor-vermelho);
+            font-weight: 700;
+        }
+
+        .btn-acao.acao-repor {
+            color: var(--cor-verde);
+        }
+
+        .btn-acao.acao-repor:hover {
+            color: #219653;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo-area">
+            <h2>🍽️ Gestão</h2>
+            <span id="nomeGerenteLogado">Gerente de Estoque</span>
+        </div>
+        <nav class="menu-nav">     
+            <button class="menu-item ativo">📦 Prateleira & Compras</button>
+            <button class="menu-item" disabled>📊 Dashboard (Bloqueado)</button>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="btn-sair" onclick="sairDoSistema()">Sair do Sistema</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-titles">
+                <h1>Controle de Estoque</h1>
+                <p>Gerencie ingredientes, produtos finalizados e entrada de notas fiscais</p>
+            </div>
+        </header>
+
+        <section class="modulo-rh">
+            <div class="rh-header">
+                <h2>Prateleira Atual</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn-contratar" style="background-color: var(--cor-secundaria);"
+                        onclick="abrirModalBase()">➕ Cadastrar Item Base</button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table class="tabela-clean">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Categoria</th>
+                            <th>Quantidade Atual</th>
+                            <th>Ações (Movimentar)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaEstoque">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="modulo-rh" style="margin-top: 25px;">
+            <div class="rh-header">
+                <h2>Histórico de Perdas e Ajustes</h2>
+            </div>
+            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">
+                Registros manuais de perda/ajuste lançados nesta tela. Este histórico é informativo e não altera
+                automaticamente a quantidade da Prateleira Atual.
+            </p>
+            <div class="table-container">
+                <table class="tabela-clean">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Qtd. Atual Informada</th>
+                            <th>Qtd. Perdida</th>
+                            <th>Motivo</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaHistorico">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="modalBase">
+        <div class="modal-content">
+            <h2>Cadastrar Novo Item no Sistema</h2>
+            <p style="font-size: 13px; color: #666; margin-bottom: 20px;">Use isso apenas se o item nunca existiu no
+                restaurante.</p>
+            <form id="formBase">
+                <div class="input-group">
+                    <label>Nome do Item</label>
+                    <input type="text" id="baseNome" placeholder="Ex: Farinha de Trigo ou Coca-Cola" required>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Categoria</label>
+                        <select id="baseTipo" required onchange="alternarUnidadeBase()">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="INGREDIENTE">Ingrediente (Cozinha)</option>
+                            <option value="PRODUTO">Produto (Pronto para Venda)</option>
+                        </select>
+                    </div>
+                    <div class="input-group" id="grupoUnidadeBase" style="display: none;">
+                        <label>Unidade de Medida</label>
+                        <select id="baseUnidade">
+                            <option value="UN">Unidade (UN)</option>
+                            <option value="KG">Quilos (KG)</option>
+                            <option value="L">Litros (L)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Preço Unitário (R$)</label>
+                    <input type="text" id="basePreco" placeholder="R$ 0,00" required>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancelar" onclick="fecharModais()">Cancelar</button>
+                    <button type="submit" class="btn-salvar">Salvar Cadastro Base</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalMovimento">
+        <div class="modal-content" style="width: 400px;">
+            <h2 id="tituloMovimento">Repor Estoque</h2>
+            <form id="formMovimento">
+                <div class="input-group">
+                    <label>Quantidade (<span id="movUnidadeTexto">UN</span>)</label>
+                    <input type="number" id="movQuantidade" placeholder="Ex: 10" min="1" step="1" required>
+                </div>
+
+                <div class="input-group" id="divValorCompra">
+                    <label>Valor Total da Nota (R$)</label>
+                    <input type="text" id="movValorTotal" placeholder="R$ 0,00">
+                    <span style="font-size: 11px; color: #888; margin-top: 5px;">Isto irá gerar uma despesa no painel do
+                        Gerente Geral.</span>
+                </div>
+
+                <div class="input-group" id="divMotivoPerda" style="display: none;">
+                    <label>Motivo da Perda</label>
+                    <input type="text" id="movMotivo" placeholder="Ex: Validade vencida, quebra, desperdício...">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancelar" onclick="fecharModais()">Cancelar</button>
+                    <button type="submit" class="btn-salvar" id="btnSalvarMovimento">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/gerente-estoque.js"></script>
+</body>
+
+</html>

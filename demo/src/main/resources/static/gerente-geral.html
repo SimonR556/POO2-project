@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Gerente Geral | Restaurante</title>
+    <link rel="stylesheet" href="css/gerente.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo-area">
+            <h2>🍽️ Gestão</h2>
+            <span id="nomeGerenteLogado">Gerente Geral</span>
+        </div>
+       <nav class="menu-nav">
+            <button class="menu-item ativo">📊 Dashboard & RH</button>
+            <button class="menu-item" onclick="window.location.href='gerente-estoque.html'">📦 Estoque</button>
+            <button class="menu-item" onclick="window.location.href='gerente-vendas.html'">📋 Cardápio</button>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="btn-sair" onclick="sairDoSistema()">Sair do Sistema</a>
+        </div>
+    </aside>
+
+    <!-- Área Central: Dashboard e Tabela -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-titles">
+                <h1>Visão Geral do Negócio</h1>
+                <p>Acompanhe os resultados e gerencie sua equipe</p>
+            </div>
+        </header>
+
+        <!-- Módulo de Relatórios (Cards) -->
+        <section class="dashboard-cards" id="secaoDashboard">
+            <div class="card card-destaque">
+                <div class="card-icone">💰</div>
+                <div class="card-info">
+                    <p>Lucro Líquido</p>
+                    <h3 id="dashLucro">Carregando...</h3>
+                    <div class="sub-info">
+                        <span class="receita">Vendas: <b id="dashReceita">...</b></span> | 
+                        <span class="despesa">Despesas: <b id="dashDespesa">...</b></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icone">👥</div>
+                <div class="card-info">
+                    <p>Total de Clientes</p>
+                    <h3 id="dashClientes">...</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icone">🧑‍🍳</div>
+                <div class="card-info">
+                    <p>Equipe Ativa</p>
+                    <h3 id="dashEquipe">...</h3>
+                </div>
+            </div>
+
+            <div class="card card-alerta">
+                <div class="card-icone">⚠️</div>
+                <div class="card-info">
+                    <p>Alerta de Estoque</p>
+                    <h3 id="dashEstoque">...</h3>
+                    <span class="sub-info">Produtos em baixa</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Módulo de RH (Gestão de Equipe) -->
+        <section class="modulo-rh">
+            <div class="rh-header">
+                <h2>Quadro de Funcionários</h2>
+                <button class="btn-contratar" onclick="abrirModalContratar()">➕ Contratar</button>
+            </div>
+
+            <div class="table-container">
+                <table class="tabela-clean">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Cargo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelaEquipe">
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL: Contratar / Editar Funcionário -->
+    <div class="modal-overlay" id="modalRH">
+        <div class="modal-content">
+            <h2 id="tituloModalRH">Contratar Funcionário</h2>
+            <form id="formRH">
+                <input type="hidden" id="editIndex"> <!-- Campo invisível para saber se é edição -->
+
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="rhNome" required>
+                </div>
+                <div class="input-group">
+                    <label>CPF</label>
+                    <input type="text" id="rhCpf" required>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Telefone</label>
+                        <input type="text" id="rhTelefone" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Senha de Acesso</label>
+                        <input type="password" id="rhSenha" placeholder="••••••••">
+                        <span id="dicaSenhaRH" style="font-size: 11px; color: #888; margin-top: 5px;"></span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Cargo (Nível de Acesso)</label>
+                    <select id="rhCargo" required>
+                        <option value="" disabled selected>Selecione o cargo...</option>
+                        <option value="ATENDENTE">Atendente (Caixa)</option>
+                        <option value="GERENTE_VENDAS">Gerente de Vendas</option>
+                        <option value="GERENTE_ESTOQUE">Gerente de Estoque</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancelar" onclick="fecharModalRH()">Cancelar</button>
+                    <button type="submit" class="btn-salvar">Salvar Funcionário</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/gerente.js"></script>
+</body>
+
+</html>
