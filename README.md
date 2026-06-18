@@ -218,18 +218,27 @@ REQUISITOS NÃO FUNCIONAIS
 ## 4
 DIAGRAMA DE CASO DE USO
 
-<img width="2830" height="1944" alt="UseCase POO 2 (1)" src="https://github.com/user-attachments/assets/e4de839c-57dd-47e5-b4dc-ef9ab56bbe77" />
+<img width="2830" height="1944" alt="POO2 diagrama de caso de uso" src="https://github.com/user-attachments/assets/00bb03ee-d2fd-4752-b039-a2e6d97b1033" />
+
 
 ## 5
 DIAGRAMA DE CLASSES
 
-<img width="2496" height="1336" alt="Class Diagram0 (1)" src="https://github.com/user-attachments/assets/d01ee1d7-dd12-40a7-a966-00deec10f594" />
+diagrama de classes completo:
+
+<img width="8192" height="1918" alt="POO2 diagrama de classes completo" src="https://github.com/user-attachments/assets/298a3895-dddc-42e9-a212-7c060258edce" />
+
+diagrama de classes simplificado (apenas classes entidade):
+
+<img width="6538" height="6135" alt="POO2 diagrama de classes simplificado" src="https://github.com/user-attachments/assets/58949786-b631-4f88-a298-dcd831a63479" />
 
 ## 6
 DIAGRAMA DE ATIVIDADES
 
-<img width="766" height="898" alt="fluxodevendaeatendimento" src="https://github.com/user-attachments/assets/0ef4a60c-bded-468a-9294-fe2a0b133160" />
-<br>
-<img width="999" height="595" alt="gestapdevendaestoque" src="https://github.com/user-attachments/assets/891d6977-a679-4d5b-8a29-89cec3a8e4a7" />
-<br>
-<img width="1533" height="595" alt="fluxoadmerel" src="https://github.com/user-attachments/assets/0d5f472f-361c-4431-9ed4-b8bcec791177" />
+<img width="1364" height="1309" alt="fluxo de venda e atendimento" src="https://github.com/user-attachments/assets/9c8179dc-9b9d-4dc3-997c-dd2a27d81f1c" />
+
+
+<img width="2130" height="921" alt="Fluxo de gestão de estoque e compras" src="https://github.com/user-attachments/assets/63926422-d9ef-4574-a769-518f62eae8e0" />
+
+
+<img width="1348" height="1210" alt="fluxo de administração e relatórios" src="https://github.com/user-attachments/assets/bcf1226c-eb71-490d-adda-86ed6d4fe80c" />
