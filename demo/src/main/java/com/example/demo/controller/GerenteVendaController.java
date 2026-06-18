@@ -36,7 +36,7 @@ public class GerenteVendaController {
     }
 
     @PutMapping("/pratos/{id}")
-    public ResponseEntity<Cardapio> atualizarPrato(@PathVariable Long id, @RequestBody Cardapio prato) {
+    public ResponseEntity<Cardapio> atualizarPrato(@PathVariable Long id, @RequestBody Prato prato) {
         return ResponseEntity.ok(gerenteVendaService.atualizarPrato(id, prato));
     }
 }
